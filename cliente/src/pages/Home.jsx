@@ -1,8 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import searchSkins from '../utils/searchSkins.jsx';
 import List from '../components/List.jsx'
+import Register from '../components/Register.jsx';
 
 export default function Home() {
-  const navigation = useNavigate();
+  const [skins, setSkins] = useState([]);
+
+  useEffect(() => {
+    searchSkins(setSkins);
+  }, []);
 
   return (
     <>
@@ -11,11 +17,10 @@ export default function Home() {
       </header>
       <main>
         <div>
-          <button onClick={() => navigation('/consult')}>Consult</button>
-          <button onClick={() => navigation('/register')}>Register</button>
+          <List skins={skins} setSkins={setSkins} />
         </div>
         <div>
-          <List />
+          <Register setSkins={setSkins} />
         </div>
       </main>
       <footer>

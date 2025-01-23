@@ -10,11 +10,6 @@ let skins = [
         name: "Prime Vandal",
         weapon: "Vandal",
         price: "1775 VP",
-        bundle: {
-            image: "url_imagem_bundle_prime",
-            name: "Prime Collection",
-            price: "7100 VP"
-        },
         variants: ["Orange", "Blue", "Yellow"],
         rarity: "Premium"
     },
@@ -24,11 +19,6 @@ let skins = [
         name: "Reaver Vandal",
         weapon: "Vandal",
         price: "1775 VP",
-        bundle: {
-            image: "url_imagem_bundle_reaver",
-            name: "Reaver Collection",
-            price: "7100 VP"
-        },
         variants: ["Purple", "White", "Black", "Red"],
         rarity: "Premium"
     },
@@ -38,11 +28,6 @@ let skins = [
         name: "Glitchpop Frenzy",
         weapon: "Frenzy",
         price: "2175 VP",
-        bundle: {
-            image: "url_imagem_bundle_glitchpop",
-            name: "Glitchpop Collection",
-            price: "8700 VP"
-        },
         variants: ["Pink", "Gold", "Blue", "Red"],
         rarity: "Exclusive"
     },
@@ -52,11 +37,6 @@ let skins = [
         name: "Sovereign Guardian",
         weapon: "Guardian",
         price: "1775 VP",
-        bundle: {
-            image: "url_imagem_bundle_sovereign",
-            name: "Sovereign Collection",
-            price: "7100 VP"
-        },
         variants: ["Golden", "Green", "Silver", "Purple"],
         rarity: "Premium"
     },
@@ -66,11 +46,6 @@ let skins = [
         name: "Ion Phantom",
         weapon: "Phantom",
         price: "1775 VP",
-        bundle: {
-            image: "url_imagem_bundle_ion",
-            name: "Ion Collection",
-            price: "7100 VP"
-        },
         variants: ["Original"],
         rarity: "Premium"
     },
@@ -80,11 +55,6 @@ let skins = [
         name: "Valorant Go! Vol. 1 Knife",
         weapon: "Melee (Knife)",
         price: "3550 VP",
-        bundle: {
-            image: "url_imagem_bundle_go1",
-            name: "Valorant Go! Vol. 1",
-            price: "7100 VP"
-        },
         variants: ["Original"],
         rarity: "Premium"
     },
@@ -94,11 +64,6 @@ let skins = [
         name: "Glitchpop Judge",
         weapon: "Judge",
         price: "2175 VP",
-        bundle: {
-            image: "url_imagem_bundle_glitchpop",
-            name: "Glitchpop Collection",
-            price: "8700 VP"
-        },
         variants: ["Pink", "Gold", "Blue", "Red"],
         rarity: "Exclusive"
     },
@@ -108,11 +73,6 @@ let skins = [
         name: "Radiant Crisis 001 Phantom",
         weapon: "Phantom",
         price: "1775 VP",
-        bundle: {
-            image: "url_imagem_bundle_radiantcrisis",
-            name: "Radiant Crisis 001 Collection",
-            price: "7100 VP"
-        },
         variants: ["Original"],
         rarity: "Premium"
     },
@@ -122,11 +82,6 @@ let skins = [
         name: "Reaver Knife",
         weapon: "Melee (Knife)",
         price: "3550 VP",
-        bundle: {
-            image: "url_imagem_bundle_reaver_knife",
-            name: "Reaver Collection",
-            price: "7100 VP"
-        },
         variants: ["Original"],
         rarity: "Premium"
     }
@@ -138,27 +93,36 @@ app.use(express.json());
 app.get('/skins', (req, res) => {
     res.json({
         error: false,
-        message: 'Busca realizada com sucesso.',
+        message: 'Search completed successfully.',
         data: skins
     });
 });
 
+app.get('/skins/:id', (req, res) => {
+    const skin = skins.filter(skin => skin.id == req.params.id);
+    res.json({
+        error: false,
+        message: 'Search completed successfully.',
+        data: skin
+    });
+});
+
 app.post('/skins', (req, res) => {
-    const { images, name, weapon, price, bundle, variants, rarity } = req.body;
+    const { images, name, weapon, price, variants, rarity } = req.body;
     const newSkin = {
-        id: skins.length + 1,
+        id: Date.now(),
         images,
         name,
         weapon,
         price,
-        bundle,
         variants,
         rarity
     };
     skins = [...skins, newSkin]
     res.json({
         error: false,
-        message: 'Skin adicionada com sucesso.',
+        message: 'Skin added successfully.',
+        data: newSkin
     });
 });
 
@@ -172,7 +136,7 @@ app.delete('/skins/:id', (req, res) => {
     skins = newSkins;
     res.json({
         error: false,
-        message: 'Skin excluida com sucesso.',
+        message: 'Skin deleted successfully.',
         data: newSkins
     });
 });

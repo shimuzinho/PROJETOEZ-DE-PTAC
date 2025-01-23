@@ -5,6 +5,6 @@ export default async function searchSkins(setSkins) {
     setSkins(data.data);
   } catch (err) {
     console.error(err);
-    alert('Erro ao buscar as skins.');
+    alert('Error when searching for skins.');
   }
 };

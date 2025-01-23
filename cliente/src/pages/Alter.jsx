@@ -1,11 +1,18 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import searchSkin from "../utils/searchSkin.jsx";
 
 export default function Alter() {
   const { id } = useParams();
+  const [skin, setSkin] = useState();
+
+  useEffect(() => {
+    searchSkin(setSkin, id)
+  }, [])
 
   const handleAlter = async () => {
     const newSkin = {};
-
+    console.log(skin)
     try {
       await fetch(`http://localhost:3000/skins/${id}`, {
         method: 'PUT',
@@ -16,10 +23,10 @@ export default function Alter() {
       });
     } catch (err) {
       console.error(err);
-      alert('Erro na alteração.')
+      alert('Error when changing.')
     }
   };
-  
+
   return (
     <>
       <button onClick={handleAlter}>Alter</button>

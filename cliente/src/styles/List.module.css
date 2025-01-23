@@ -1,0 +1,12 @@
+.containerSkins {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.containerSkinIndividual {
+  display: flex;
+  flex-direction: column;
+  margin: 3%;
+  width: 15%;
+}
