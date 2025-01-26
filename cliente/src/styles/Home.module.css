@@ -3,6 +3,7 @@ h2 {
     color: #ffff;
     font-family: 'Koulen', sans-serif;
     font-weight: 300;
+   
 }
 
 header {
@@ -32,13 +33,13 @@ header {
 .invertedTrapeze {
     background-color: #072436;
     clip-path: polygon(10% 100%, 100% 100%, 90% 0, 0 0);
-    margin-right: -22px;
+    margin-right: -25px;
 }
 
 .reverseInvertedTrapeze {
     background-color: #072436;
     clip-path: polygon(0 100%, 90% 100%, 100% 0, 10% 0);
-    margin-left: -22px;
+    margin-left: -25px;
 
 }
   
