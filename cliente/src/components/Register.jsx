@@ -18,8 +18,8 @@ export default function Register() {
       if (response.ok) {
         location.reload();
       }
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
       alert('Registration not completed.');
     };
   };
@@ -28,27 +28,27 @@ export default function Register() {
     <>
       <h1>Register</h1>
       <form onSubmit={handleSubmit(handleRegister)}>
-        <label forhtml="name">Skin name: </label>
+        <label htmlFor="name">Skin name: </label>
         <input name="name" {...register('name', { required: 'Name is mandatory.' })}></input>
         {errors.name && <p>{errors.name.message}</p>}
-        <label forhtml="weapon">Skin weapon: </label>
+        <label htmlFor="weapon">Skin weapon: </label>
         <input name="weapon" {...register('weapon', { required: 'Weapon is mandatory.' })}></input>
         {errors.weapon && <p>{errors.weapon.message}</p>}
-        <label forhtml="image">Skin image: </label>
+        <label htmlFor="image">Skin image: </label>
         <input name="image" {...register('image', { required: 'Image is mandatory.' })}></input>
         {errors.image && <p>{errors.image.message}</p>}
-        <label forhtml="price">Skin price: </label>
+        <label htmlFor="price">Skin price: </label>
         <input name="price" {...register('price', { required: 'Price is mandatory.' })}></input>
         {errors.price && <p>{errors.price.message}</p>}
-        <label forhtml="variants">Skin variants: </label>
+        <label htmlFor="variants">Skin variants: </label>
         <input name="variants" {...register('variants', { required: 'Variants is mandatory.' })}></input>
         {errors.variants && <p>{errors.variants.message}</p>}
-        <label forhtml="rarity">Skin rarity: </label>
-        <select {...register('rarity')}>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
+        <label htmlFor="rarity">Skin rarity: </label>
+        <select name="rarity" {...register('rarity')}>
+          <option value="Deluxe">Deluxe</option>
+          <option value="Premium">Premium</option>
+          <option value="Ultra">Ultra</option>
+          <option value="Exclusive">Exclusive</option>
         </select>
         <button>Register</button>
       </form>

@@ -6,7 +6,7 @@ const port = 3000;
 let skins = [
     {
         id: 1,
-        images: "url_imagem_skin1",
+        image: "url_imagem_skin1",
         name: "Prime Vandal",
         weapon: "Vandal",
         price: "1775 VP",
@@ -15,7 +15,7 @@ let skins = [
     },
     {
         id: 2,
-        images: "url_imagem_skin2",
+        image: "url_imagem_skin2",
         name: "Reaver Vandal",
         weapon: "Vandal",
         price: "1775 VP",
@@ -24,7 +24,7 @@ let skins = [
     },
     {
         id: 3,
-        images: "url_imagem_skin3",
+        image: "url_imagem_skin3",
         name: "Glitchpop Frenzy",
         weapon: "Frenzy",
         price: "2175 VP",
@@ -33,7 +33,7 @@ let skins = [
     },
     {
         id: 4,
-        images: "url_imagem_skin4",
+        image: "url_imagem_skin4",
         name: "Sovereign Guardian",
         weapon: "Guardian",
         price: "1775 VP",
@@ -42,7 +42,7 @@ let skins = [
     },
     {
         id: 5,
-        images: "url_imagem_skin5",
+        image: "url_imagem_skin5",
         name: "Ion Phantom",
         weapon: "Phantom",
         price: "1775 VP",
@@ -51,7 +51,7 @@ let skins = [
     },
     {
         id: 6,
-        images: "url_imagem_skin6",
+        image: "url_imagem_skin6",
         name: "Valorant Go! Vol. 1 Knife",
         weapon: "Melee (Knife)",
         price: "3550 VP",
@@ -60,7 +60,7 @@ let skins = [
     },
     {
         id: 7,
-        images: "url_imagem_skin7",
+        image: "url_imagem_skin7",
         name: "Glitchpop Judge",
         weapon: "Judge",
         price: "2175 VP",
@@ -69,7 +69,7 @@ let skins = [
     },
     {
         id: 8,
-        images: "url_imagem_skin8",
+        image: "url_imagem_skin8",
         name: "Radiant Crisis 001 Phantom",
         weapon: "Phantom",
         price: "1775 VP",
@@ -78,7 +78,7 @@ let skins = [
     },
     {
         id: 9,
-        images: "url_imagem_skin9",
+        image: "url_imagem_skin9",
         name: "Reaver Knife",
         weapon: "Melee (Knife)",
         price: "3550 VP",
@@ -108,10 +108,10 @@ app.get('/skins/:id', (req, res) => {
 });
 
 app.post('/skins', (req, res) => {
-    const { images, name, weapon, price, variants, rarity } = req.body;
+    const { image, name, weapon, price, variants, rarity } = req.body;
     const newSkin = {
         id: Date.now(),
-        images,
+        image,
         name,
         weapon,
         price,
@@ -127,7 +127,21 @@ app.post('/skins', (req, res) => {
 });
 
 app.put('/skins/:id', (req, res) => {
-    res.send('Olá mundo');
+    skins.map(skin => {
+        if (skin.id == req.body.id) {
+            skin.name = req.body.name;
+            skin.weapon = req.body.weapon;
+            skin.image = req.body.image;
+            skin.price = req.body.price;
+            skin.variants = req.body.variants;
+            skin.rarity = req.body.rarity;
+        }
+    })
+    res.json({
+        error: false,
+        message: 'Skin changed successfully.',
+        data: req.body
+    })
 });
 
 app.delete('/skins/:id', (req, res) => {

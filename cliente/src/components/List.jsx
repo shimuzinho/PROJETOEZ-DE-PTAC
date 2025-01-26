@@ -9,7 +9,7 @@ export default function List({ skins, setSkins }) {
         {
           skins.map(el =>
             <div className={styles.containerSkinIndividual} key={el.id}>
-              <img src={el.images}></img>
+              <img src={el.image}></img>
               <div>
                 <p>{el.name}</p>
                 <p>{el.price}</p>

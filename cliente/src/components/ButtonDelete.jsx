@@ -7,8 +7,8 @@ export default function ButtonDelete({ id, setSkins }) {
         method: 'DELETE'
       });
       searchSkins(setSkins);
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
       alert('Erro ao deletar.');
     }
   };

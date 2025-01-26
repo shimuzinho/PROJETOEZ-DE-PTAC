@@ -28,6 +28,9 @@
     "test": ""
   },
   "dependencies": {
+    "@fontsource/anton": "^5.1.1",
+    "@fontsource/inter": "^5.1.1",
+    "@fontsource/koulen": "^5.1.1",
     "cors": "^2.8.5",
     "express": "^4.21.2"
   }

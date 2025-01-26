@@ -1,0 +1,46 @@
+h2 {
+    text-align: center;
+    color: #ffff;
+    font-family: 'Koulen', sans-serif;
+    font-weight: 300;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.containerHeader {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+
+}
+
+.trapeze, .invertedTrapeze, .reverseInvertedTrapeze {
+    width: 250px;
+    height: 40px;
+    padding: 0;
+}
+
+.trapeze {
+    background-color: #D73947;
+    clip-path: polygon(10% 100%, 90% 100%, 100% 0, 0 0);
+    margin: 0;
+}
+  
+.invertedTrapeze {
+    background-color: #072436;
+    clip-path: polygon(10% 100%, 100% 100%, 90% 0, 0 0);
+    margin-right: -22px;
+}
+
+.reverseInvertedTrapeze {
+    background-color: #072436;
+    clip-path: polygon(0 100%, 90% 100%, 100% 0, 10% 0);
+    margin-left: -22px;
+
+}
+  
+
+
