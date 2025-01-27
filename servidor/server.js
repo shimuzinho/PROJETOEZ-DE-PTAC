@@ -6,85 +6,76 @@ const port = 3000;
 let skins = [
     {
         id: 1,
-        image: "url_imagem_skin1",
+        image: "https://valorantinfo.gg/wp-content/uploads/2021/10/valorant-prime-vandal-skin.png",
         name: "Prime Vandal",
         weapon: "Vandal",
-        price: "1775 VP",
+        price: 1775,
         variants: ["Orange", "Blue", "Yellow"],
         rarity: "Premium"
     },
     {
         id: 2,
-        image: "url_imagem_skin2",
+        image: "https://valorantinfo.gg/wp-content/uploads/2021/10/valorant-reaver-vandal-skin.png",
         name: "Reaver Vandal",
         weapon: "Vandal",
-        price: "1775 VP",
+        price: 1775,
         variants: ["Purple", "White", "Black", "Red"],
         rarity: "Premium"
     },
     {
         id: 3,
-        image: "url_imagem_skin3",
-        name: "Glitchpop Frenzy",
-        weapon: "Frenzy",
-        price: "2175 VP",
-        variants: ["Pink", "Gold", "Blue", "Red"],
-        rarity: "Exclusive"
+        image: "https://valorantinfo.gg/wp-content/uploads/2021/10/valorant-reaver-operator-skin.png",
+        name: "Reaver Operator",
+        weapon: "Operator",
+        price: 1775,
+        variants: ["Purple", "White", "Black", "Red"],
+        rarity: "Premium"
     },
     {
         id: 4,
-        image: "url_imagem_skin4",
+        image: "https://valorantinfo.gg/wp-content/uploads/2021/11/valorant-sovereign-guardian-skin.png",
         name: "Sovereign Guardian",
         weapon: "Guardian",
-        price: "1775 VP",
+        price: 1775,
         variants: ["Golden", "Green", "Silver", "Purple"],
         rarity: "Premium"
     },
     {
         id: 5,
-        image: "url_imagem_skin5",
+        image: "https://valorantinfo.gg/wp-content/uploads/2021/10/valorant-ion-phantom-skin.png",
         name: "Ion Phantom",
         weapon: "Phantom",
-        price: "1775 VP",
+        price: 1775,
         variants: ["Original"],
         rarity: "Premium"
     },
     {
         id: 6,
-        image: "url_imagem_skin6",
-        name: "Valorant Go! Vol. 1 Knife",
-        weapon: "Melee (Knife)",
-        price: "3550 VP",
-        variants: ["Original"],
-        rarity: "Premium"
+        image: "https://valorantinfo.gg/wp-content/uploads/2021/10/valorant-elderflame-vandal-skin.png",
+        name: "Elderflame Vandal",
+        weapon: "Vandal",
+        price: 2475,
+        variants: ["Original, Red, Blue, Dark"],
+        rarity: "Ultra"
     },
     {
         id: 7,
-        image: "url_imagem_skin7",
+        image: "https://valorantinfo.gg/wp-content/uploads/2021/10/valorant-glitchpop-judge-skin.png",
         name: "Glitchpop Judge",
         weapon: "Judge",
-        price: "2175 VP",
+        price: 2175,
         variants: ["Pink", "Gold", "Blue", "Red"],
         rarity: "Exclusive"
     },
     {
         id: 8,
-        image: "url_imagem_skin8",
-        name: "Radiant Crisis 001 Phantom",
+        image: "https://valorantinfo.gg/wp-content/uploads/2021/11/valorant-recon-phantom-skin.png",
+        name: "Recon Phantom",
         weapon: "Phantom",
-        price: "1775 VP",
-        variants: ["Original"],
+        price: 1775,
+        variants: ["Original, Red, Blue, Green"],
         rarity: "Premium"
     },
-    {
-        id: 9,
-        image: "url_imagem_skin9",
-        name: "Reaver Knife",
-        weapon: "Melee (Knife)",
-        price: "3550 VP",
-        variants: ["Original"],
-        rarity: "Premium"
-    }
 ];
 
 app.use(cors());

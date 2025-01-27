@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import searchSkins from '../utils/searchSkins';
 import styles from '../styles/Register.module.css'
 
 export default function Register() {
@@ -30,19 +29,24 @@ export default function Register() {
       <form onSubmit={handleSubmit(handleRegister)}>
         <label htmlFor="name">Skin name: </label>
         <input name="name" {...register('name', { required: 'Name is mandatory.' })}></input>
-        {errors.name && <p>{errors.name.message}</p>}
+        {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
         <label htmlFor="weapon">Skin weapon: </label>
         <input name="weapon" {...register('weapon', { required: 'Weapon is mandatory.' })}></input>
-        {errors.weapon && <p>{errors.weapon.message}</p>}
+        {errors.weapon && <p className={styles.errorMessage}>{errors.weapon.message}</p>}
         <label htmlFor="image">Skin image: </label>
         <input name="image" {...register('image', { required: 'Image is mandatory.' })}></input>
-        {errors.image && <p>{errors.image.message}</p>}
+        {errors.image && <p className={styles.errorMessage}>{errors.image.message}</p>}
         <label htmlFor="price">Skin price: </label>
-        <input name="price" {...register('price', { required: 'Price is mandatory.' })}></input>
-        {errors.price && <p>{errors.price.message}</p>}
+        <input name="price" type="number"
+          {...register('price', {
+            required: 'Price is mandatory.',
+            valueAsNumber: true,
+            validate: value => value > 0 || 'Price must be a positive number',
+          })}></input>
+        {errors.price && <p className={styles.errorMessage}>{errors.price.message}</p>}
         <label htmlFor="variants">Skin variants: </label>
         <input name="variants" {...register('variants', { required: 'Variants is mandatory.' })}></input>
-        {errors.variants && <p>{errors.variants.message}</p>}
+        {errors.variants && <p className={styles.errorMessage}>{errors.variants.message}</p>}
         <label htmlFor="rarity">Skin rarity: </label>
         <select name="rarity" {...register('rarity')}>
           <option value="Deluxe">Deluxe</option>
@@ -50,7 +54,7 @@ export default function Register() {
           <option value="Ultra">Ultra</option>
           <option value="Exclusive">Exclusive</option>
         </select>
-        <button>Register</button>
+        <button className={styles.buttonRegister}>Register</button>
       </form>
     </>
   );

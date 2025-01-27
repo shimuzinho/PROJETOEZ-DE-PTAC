@@ -1,0 +1,25 @@
+.formAlter {
+    margin-top: 40px;
+}
+
+.bigButtonAlter {
+    background-color: #D73947;
+    border: #121B24 solid 4px;
+    width: 79.6%;
+    height: 50px;
+    margin: 15px 10.2% 30px 10.2%;
+    font-family: 'Koulen', sans-serif;
+    font-size: 28px;
+    font-weight: 550;
+    padding-bottom: 45px;
+    color: #121B24;
+    transition: 0.5s;
+    cursor: pointer;
+}
+  
+.bigButtonAlter:hover {
+    background-color: #121B24;
+    color: #D73947;
+    border: #121b24 solid 4px;
+    transition: 0.5s;
+}

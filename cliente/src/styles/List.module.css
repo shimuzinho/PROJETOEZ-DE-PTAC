@@ -1,91 +1,122 @@
-* {
-  margin: 0;
-  padding: 0;
-  text-transform: uppercase;
-}
-
-body {
-  background-image: linear-gradient(#074461, #121B24);
-}
-
-h1 {
-  font-size: 45px;
+.containerSkins {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  color: #FFFFFF;
-  font-family: 'Anton', sans-serif;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
-
-form {
-  display: flex;
-  justify-content: center;
-  margin-left: 25%;
+  margin-top: -20%;
   margin-bottom: 5%;
-  flex-direction: column;
-  background-color: #D73947;
-  width: 50%;
-  height: auto;
-  padding: 20px 0;
+  height: max-content;
 }
 
-input, select {
-  background-color: #121B24;
-  border-radius: 50px;
-  width: 77%;
-  height: 40px;
-  border: none;
-  outline: none;
-  margin: 5px 10% 0 10%;
-  color: #FFFFFF;
-  padding-left: 3%;
-}
-
-label {
-  margin-left: 13%;
+.containerSkinIndividual {
+  width: 20%;
+  aspect-ratio: 590 / 310;
+  perspective: 1000px;
+  position: relative;
+  margin: 1%;
   font-family: 'Inter', sans-serif;
-  margin-top: 40px;
   font-size: 13px;
-  font-weight: 700;
-  color: #121B24;
+  color: #ffffff;
+  margin-bottom: 3%;
 }
 
-select {
-  background-color: #121B24;
-  border-radius: 50px;
-  width: 80%;
-  height: 40px;
-  border: none;
-  margin: 5px 10% 40px 10%;
-  font-size: 11px;
-  color: #FFFFFF;
-  padding: 0 20px;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff' width='24px' height='24px'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.containerSkinIndividual:hover .card {
+  transform: rotateY(180deg);
+}
+
+.cardFront, .cardBack {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.cardFront {
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: right 15px center;
-  background-size: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.buttonRegister {
+.cardBack {
+  transform: rotateY(180deg);
+}
+
+.cardImage, .containerPrice, .nameSkins {
+  display: flex;
+  margin: 3% 0;
+  width: 90%;
+}
+
+.cardImage {
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  max-height: 47%;
+}
+
+.containerPrice {
+  margin-right: 30%;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.priceImage {
+  margin-right: 2%;
+}
+
+.nameSkins {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.buttonDelete, .buttonAlter {
+  color: #ffffff;
+  cursor: pointer;
+  width: 50%;
+  height: 20%;
+  border: none;
+  transition: 0.5s;
+}
+
+.buttonDelete {
   background-color: #D73947;
-  border: #121B24 solid 4px;
-  border-radius: 40px;
-  width: 79.6%;
-  height: 50px;
-  margin: 5px 10.2% 30px 10.2%;
-  font-family: 'Koulen', sans-serif;
-  font-size: 28px;
-  font-weight: 550;
-  padding-bottom: 45px;
-  color: #121B24;
+}
+
+.buttonAlter {
+  background-color: #121B24;
+  margin-bottom: 5%;
+}
+
+.buttonDelete:hover {
+  background-color: #99252f;
   transition: 0.5s;
 }
 
-.buttonRegister:hover {
-  background-color: #121B24;
-  color: #D73947;
-  border: #121b24 solid 4px;
-  transition: 0.5s;
+.buttonAlter:hover {
+  background-color: #0a0f13;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 1600px) {
+  .cardImage {
+    width: 80%;
+  }
 }

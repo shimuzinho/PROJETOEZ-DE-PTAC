@@ -1,3 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    scrollbar-width: medium;
+    scrollbar-color: #D73947 #121B24;
+}
+
+body {
+    background: linear-gradient(180deg, #074461 0%, #121B24 20%);
+}
+
 h2 {
     text-align: center;
     color: #ffff;
@@ -9,19 +21,23 @@ h2 {
 header {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .containerHeader {
     display: flex;
     justify-content: center;
     width: fit-content;
+    flex-direction: row;
 
 }
 
 .trapeze, .invertedTrapeze, .reverseInvertedTrapeze {
     width: 250px;
-    height: 35px;
+    height: 40px;
     padding: 0;
+    margin-bottom: 15%;
 }
 
 .trapeze {
@@ -42,3 +58,7 @@ header {
     margin-left: -25px;
 
 }
+
+.bigImage {
+    width: 100%;
+}  

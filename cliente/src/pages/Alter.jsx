@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import searchSkin from "../utils/searchSkin.jsx";
 import { useNavigate } from "react-router-dom";
+import styles from '../styles/Alter.module.css';
 
 export default function Alter() {
   const navigation = useNavigate();
@@ -57,46 +58,41 @@ export default function Alter() {
 
   return (
     <>
-      <form onSubmit={handleAlter}>
-        <label htmlFor="name">
-          <input
-            value={name}
-            onChange={event => setName(event.target.value)}
-          />
-        </label>
-        <label htmlFor="weapon">
-          <input
-            value={weapon}
-            onChange={event => setWeapon(event.target.value)}
-          />
-        </label>
-        <label htmlFor="image">
-          <input
-            value={image}
-            onChange={event => setImage(event.target.value)}
-          />
-        </label>
-        <label htmlFor="price">
-          <input
-            value={price}
-            onChange={event => setPrice(event.target.value)}
-          />
-        </label>
-        <label htmlFor="variants">
-          <input
-            value={variants}
-            onChange={event => setVariants(event.target.value)}
-          />
-        </label>
-        <label htmlFor="rarity">
-          <select name="rarity" defaultValue={rarity} onChange={event => setRarity(event.target.value)}>
-            <option value="Deluxe">Deluxe</option>
-            <option value="Premium">Premium</option>
-            <option value="Ultra">Ultra</option>
-            <option value="Exclusive">Exclusive</option>
-          </select>
-        </label>
-        <button>Alter</button>
+      <h1>Alter</h1>
+      <form className={styles.formAlter} onSubmit={handleAlter}>
+        <label htmlFor="name">Skin name: </label>
+        <input
+          value={name}
+          onChange={event => setName(event.target.value)}
+        />
+        <label htmlFor="weapon">Skin weapon: </label>
+        <input
+          value={weapon}
+          onChange={event => setWeapon(event.target.value)}
+        />
+        <label htmlFor="image">Skin image: </label>
+        <input
+          value={image}
+          onChange={event => setImage(event.target.value)}
+        />
+        <label htmlFor="price">Skin price: </label>
+        <input
+          value={price}
+          onChange={event => setPrice(event.target.value)}
+        />
+        <label htmlFor="variants">Skin variants: </label>
+        <input
+          value={variants}
+          onChange={event => setVariants(event.target.value)}
+        />
+        <label htmlFor="rarity">Skin rarity: </label>
+        <select name="rarity" defaultValue={rarity} onChange={event => setRarity(event.target.value)}>
+          <option value="Deluxe">Deluxe</option>
+          <option value="Premium">Premium</option>
+          <option value="Ultra">Ultra</option>
+          <option value="Exclusive">Exclusive</option>
+        </select>
+        <button className={styles.bigButtonAlter}>Alter</button>
       </form>
     </>
   );

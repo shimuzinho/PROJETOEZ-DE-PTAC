@@ -1,12 +1,13 @@
 import searchSkins from "../utils/searchSkins";
+import styles from '../styles/List.module.css';
 
-export default function ButtonDelete({ id, setSkins }) {
+export default function ButtonDelete({ id, setSkins, setSkinsFilter }) {
   const handleDelete = async (id) => {
     try {
       await fetch(`http://localhost:3000/skins/${id}`, {
         method: 'DELETE'
       });
-      searchSkins(setSkins);
+      searchSkins(setSkins, setSkinsFilter);
     } catch (error) {
       console.error(error);
       alert('Erro ao deletar.');
@@ -15,11 +16,11 @@ export default function ButtonDelete({ id, setSkins }) {
 
   return (
     <>
-      <button
+      <button className={styles.buttonDelete}
         onClick={() =>
           handleDelete(id)
         }>
-          Delete
+        Delete
       </button>
     </>
   );
